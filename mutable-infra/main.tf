@@ -1,4 +1,4 @@
-module "catalogue" {
+module "frontend" {
   source                = "./vendor/modules/app"
 
   ENV                   = var.ENV
