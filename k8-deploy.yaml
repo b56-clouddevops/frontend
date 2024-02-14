@@ -5,7 +5,7 @@ metadata:
   labels:
     app: frontend
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: frontend
@@ -19,9 +19,6 @@ spec:
         image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/frontend:v0001
         ports:
         - containerPort: 8080
-        envFrom:  
-          - configMapRef:
-                name: frontend-cm 
         resources:
           requests:
             memory: "256Mi"
@@ -30,18 +27,6 @@ spec:
             memory: "512Mi"
             cpu: "400m"
 
----
-
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: frontend-cm
-data:
-  CART_HOST: "cart-svc"
-  USER_HOST: "user-svc"
-  AMQP_HOST: "rabbitmq-dev.roboshop.internal"
-  AMQP_USER: "roboshop"
-  AMQP_PASS: "roboshop123"
 
 --- 
 # Creating ClusterIP Service ( this is the default type ) 
@@ -67,7 +52,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: frontend
-  minReplicas: 1
+  minReplicas: 3
   maxReplicas: 10
   metrics:
   - type: Resource
