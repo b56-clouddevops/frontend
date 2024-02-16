@@ -70,6 +70,7 @@ kind: Ingress
 metadata:
   name: frontend-ingress
 spec:
+  ingressClassName: nginx
   rules:
   - host: console.b56-roboshop.online
     http:
