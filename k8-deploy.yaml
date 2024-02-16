@@ -94,5 +94,5 @@ spec:
 
 
 # 2024/02/16 01:31:42 [error] 43#43: *41 no live upstreams while connecting to upstream, client: 10.0.0.231, 
-server: console.b56-roboshop.online, request: "GET / HTTP/1.1", 
-upstream: "http://default-frontend-ingress-console.b56-roboshop.online-frontend-svc-80/", host: "console.b56-roboshop.online"
+# server: console.b56-roboshop.online, request: "GET / HTTP/1.1", 
+# upstream: "http://default-frontend-ingress-console.b56-roboshop.online-frontend-svc-80/", host: "console.b56-roboshop.online"
