@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/frontend:v003
+        image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/frontend:{{APP_VERSION}}
         ports:
         - containerPort: 80
         resources:
@@ -26,7 +26,6 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "400m"
-
 
 --- 
 # Creating ClusterIP Service ( this is the default type ) 
@@ -82,6 +81,8 @@ spec:
               name: frontend-svc
               port:
                 number: 80
+
+
 # You can call the service by it's name like frontend-svc if it's available in the default nameSpace 
 
 # What if the service is available on x nameSpace ?
