@@ -72,18 +72,16 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "console.b56-roboshop.online"
-    http:
-      paths:
-      - path: "/"
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend-svc
-            port:
-              number: 80
-
-
+    - host: "console.b56-roboshop.online"
+      http:
+        paths:
+        - path: "/"
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend-svc
+              port:
+                number: 80
 # You can call the service by it's name like frontend-svc if it's available in the default nameSpace 
 
 # What if the service is available on x nameSpace ?
@@ -93,3 +91,8 @@ spec:
 # How it looks like  ?   serviceName.nameSpace.svc.cluster.local
                           # x-svc.x.svc.cluster.local 
                           # y-svc.y.svc.cluster.local
+
+
+# 2024/02/16 01:31:42 [error] 43#43: *41 no live upstreams while connecting to upstream, client: 10.0.0.231, 
+server: console.b56-roboshop.online, request: "GET / HTTP/1.1", 
+upstream: "http://default-frontend-ingress-console.b56-roboshop.online-frontend-svc-80/", host: "console.b56-roboshop.online"
