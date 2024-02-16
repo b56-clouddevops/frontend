@@ -18,7 +18,7 @@ spec:
       - name: frontend
         image: 355449129696.dkr.ecr.us-east-1.amazonaws.com/frontend:v003
         ports:
-        - containerPort: 8080
+        - containerPort: 80
         resources:
           requests:
             memory: "256Mi"
@@ -39,8 +39,8 @@ spec:
     app: frontend
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080 
+      port: 80
+      targetPort: 80 
 
 --- 
 apiVersion: autoscaling/v2
